@@ -32,8 +32,8 @@
                         <span key="t-category">Category</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#" key="t-add-category">Add Category</a></li>
-                        <li><a href="#" key="t-manage-category">Manage Category</a></li>
+                        <li><a href="{{route('category.create')}}" key="t-add-category">Add Category</a></li>
+                        <li><a href="{{route('category.index')}}" key="t-manage-category">Manage Category</a></li>
                     </ul>
                 </li>
 

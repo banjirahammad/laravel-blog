@@ -57,15 +57,30 @@
     <script src="{{asset('backend')}}/assets/libs/metismenu/metisMenu.min.js"></script>
     <script src="{{asset('backend')}}/assets/libs/simplebar/simplebar.min.js"></script>
     <script src="{{asset('backend')}}/assets/libs/node-waves/waves.min.js"></script>
+    <script src="{{asset('backend')}}/assets/libs/toastr/toastr.min.js"></script>
+    <script>
+        $(".password-addon").click(function (){
+            $(this).siblings('input').attr('type')=='password'?$(this).siblings('input').attr('type','text'):$(this).siblings('input').attr('type','password')
+        });
 
-    <!-- apexcharts -->
-    <script src="{{asset('backend')}}/assets/libs/apexcharts/apexcharts.min.js"></script>
-
-    <!-- dashboard init -->
-    <script src="{{asset('backend')}}/assets/js/pages/dashboard.init.js"></script>
+        @if(Session::has('success'))
+        toastr.success("{{session('success')}}")
+        @endif
+        @if(Session::has('error'))
+        toastr.error("{{session('error')}}")
+        @endif
+        @if(Session::has('warning'))
+        toastr.warning("{{session('warning')}}")
+        @endif
+        @if(Session::has('info'))
+        toastr.info("{{session('info')}}")
+        @endif
+    </script>
     @stack('script')
     <!-- App js -->
     <script src="{{asset('backend')}}/assets/js/app.js"></script>
+
+    <script src="{{asset('backend')}}/assets/js/toastr.config.js"></script>
 </body>
 
 </html>

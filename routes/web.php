@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -34,12 +35,16 @@ Route::middleware('guest')->group(function (){
 
 Route::middleware('auth')->group(function (){
     Route::controller(ProfileController::class)->group(function (){
-        Route::get('/profile', 'index');
+        Route::get('/profile', 'index')->name('user.profile');
+        Route::post('/profile', 'update')->name('user.profile.update');
     });
-});
+
+    Route::controller(DashboardController::class)->group(function (){
+        Route::get('/dashboard', 'index')->name('dashboard');
+    });
+
+    Route::resource('category', CategoryController::class);
 
 
-Route::controller(DashboardController::class)->group(function (){
-    Route::get('/dashboard', 'index')->name('dashboard');
 });
 
