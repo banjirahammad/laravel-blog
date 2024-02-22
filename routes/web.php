@@ -21,13 +21,14 @@ Route::get('/', function () {
 });
 Route::middleware('guest')->group(function (){
     Route::controller(AuthController::class)->group(function (){
-        Route::get('/login', 'loginView')->name('auth.login');
+        Route::get('/login', 'showLoginForm')->name('auth.login');
         Route::post('/login', [AuthController::class, 'loginAttempt'])->name('login');
-        Route::get('/registration', 'registrationView')->name('auth.registration');
+        Route::get('/registration', 'showRegistrationForm')->name('auth.registration');
         Route::post('/registration', [AuthController::class, 'registrationAttempt'])->name('registration');
-        Route::get('/forget-password', [AuthController::class, 'registrationAttempt'])->name('forget.password');
-        Route::get('/token-verify', [AuthController::class, 'registrationAttempt'])->name('token.verify');
-        Route::get('/reset-password', [AuthController::class, 'registrationAttempt'])->name('reset.password');
+        Route::get('/forget-password', [AuthController::class, 'showForgetPasswordForm'])->name('auth.forget.password');
+        Route::post('/forget-password', [AuthController::class, 'forgetPasswordAttempt'])->name('forget.password');
+        Route::get('/reset-password/{token}', [AuthController::class, 'showResetPasswordForm'])->name('auth.reset.password');
+        Route::post('/reset-password', [AuthController::class, 'resetPasswordAttempt'])->name('reset.password');
     });
 });
 
@@ -35,9 +36,10 @@ Route::middleware('auth')->group(function (){
     Route::controller(ProfileController::class)->group(function (){
         Route::get('/profile', 'index');
     });
+});
 
-    Route::controller(DashboardController::class)->group(function (){
-        Route::get('/dashboard', 'index')->name('dashboard');
-    });
+
+Route::controller(DashboardController::class)->group(function (){
+    Route::get('/dashboard', 'index')->name('dashboard');
 });
 
