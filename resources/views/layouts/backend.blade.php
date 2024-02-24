@@ -11,6 +11,7 @@
     <link href="{{asset('backend')}}/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="{{asset('backend')}}/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{asset('backend')}}/assets/libs/toastr/toastr.min.css">
     @yield('style')
     <!-- App Css-->
     <link href="{{asset('backend')}}/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
@@ -58,6 +59,7 @@
     <script src="{{asset('backend')}}/assets/libs/simplebar/simplebar.min.js"></script>
     <script src="{{asset('backend')}}/assets/libs/node-waves/waves.min.js"></script>
     <script src="{{asset('backend')}}/assets/libs/toastr/toastr.min.js"></script>
+    <script src="{{asset('backend')}}/assets/js/toastr.config.js"></script>
     <script>
         $(".password-addon").click(function (){
             $(this).siblings('input').attr('type')=='password'?$(this).siblings('input').attr('type','text'):$(this).siblings('input').attr('type','password')
@@ -80,7 +82,6 @@
     <!-- App js -->
     <script src="{{asset('backend')}}/assets/js/app.js"></script>
 
-    <script src="{{asset('backend')}}/assets/js/toastr.config.js"></script>
 </body>
 
 </html>

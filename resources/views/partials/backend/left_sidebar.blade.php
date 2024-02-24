@@ -10,7 +10,7 @@
                 <li class="menu-title" key="t-menu">Menu</li>
 
                 <li class="mm-active">
-                    <a href="{{route('dashboard')}}" class="waves-effect mm-active">
+                    <a href="{{route('dashboard')}}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span key="t-dashboards">Dashboards</span>
                     </a>
